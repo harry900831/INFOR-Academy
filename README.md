@@ -1,2 +1,3 @@
-# inforacademy
+# INFOR Academy
+
 INFOR Academy
