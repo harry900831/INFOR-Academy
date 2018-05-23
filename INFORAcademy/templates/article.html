@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} <title>INFOR-Academy</title> {% endblock %}
+
+
+{% block content %}
+	<h1>INFOR-Academy</h1>
+	<div>
+		{% for art in articles %}
+			<a href="/{{ course }}/{{art.id}}" > {{ art.Title }} </a><br>
+		{% endfor %}
+	</div>
+	<div>
+		<p> {{ article.Content | safe | linebreaksbr }} </p>	
+	</div>
+	
+{% endblock %}
+

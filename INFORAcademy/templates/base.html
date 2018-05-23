@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	{% load staticfiles %}
+	<script type="text/javascript" src=" {% static "MathJax/MathJax.js" %}?config=TeX-AMS_HTML-full">
+	</script>
+	<link rel="stylesheet" href="{% static "highlight/styles/default.css" %}">
+	<script src="{% static "highlight/highlight.pack.js" %}"></script>
+	<script> hljs.initHighlightingOnLoad(); </script>
+
 	{% block title %} {% endblock %}
 </head>
 <body>

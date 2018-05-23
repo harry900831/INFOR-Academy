@@ -3,6 +3,13 @@
 {% block title %} <title>INFOR-Academy</title> {% endblock %}
 
 {% block content %}
+
 	<h1>INFOR-Academy</h1>
 	<h2>choose one</h2>
+	{% for course in courses %}
+		<a href="/{{ course.Topic }}" > {{ course.Topic }} </a>
+		<br>
+	{% empty %}
+		<p>there is no course </p>
+	{% endfor %}
 {% endblock %}
