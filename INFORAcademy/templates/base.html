@@ -7,10 +7,16 @@
 	<link rel="stylesheet" href="{% static "highlight/styles/default.css" %}">
 	<script src="{% static "highlight/highlight.pack.js" %}"></script>
 	<script> hljs.initHighlightingOnLoad(); </script>
-
-	{% block title %} {% endblock %}
+	<title>INFOR-Academy</title>
 </head>
 <body>
+	<form action="/search" method="get">
+		<div>
+			<input type="text" name="q" placeholder="Search">
+		</div>
+		<button type="submit"></button>
+	</form>
+
 	{% block content %} {% endblock %}
 </body>
 </html>

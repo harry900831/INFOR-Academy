@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% if query %}
+		<h3>results</h3>
+		<table>
+			<tr>
+				{% for result in page.object_list %}
+					{% if result.object.Show == 1 %}
+						<td>
+							<p>
+								<a href="/{{result.object.Course}}/{{result.object.id}}">{{ result.object.Title }}</a>
+							</p>
+							<p>
+								{{ result.object.Content | safe | truncatechars_html:50 }}
+							</p>
+						</td>					
+					{% endif %}
+				{% empty %}
+					<td>
+						<p>
+							沒有結果
+						</p>
+					</td>
+				{% endfor %}
+			</tr>
+		</table>
+		{% if page.has_previous %}
+			<div>
+				<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">上一頁<a>
+			</div>
+		{% endif %}
+		{% if page.has_next %}
+			<div>
+				<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">下一頁</a>
+			</div>			
+		{% endif %}	
+	{% endif %}
+{% endblock %}
