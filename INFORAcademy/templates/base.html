@@ -2,21 +2,29 @@
 <html>
 <head>
 	{% load staticfiles %}
+	<title>INFOR-Academy</title>
+	<!-- MathJax -->
 	<script type="text/javascript" src=" {% static "MathJax/MathJax.js" %}?config=TeX-AMS_HTML-full">
 	</script>
+	<!-- highlight.js -->
 	<link rel="stylesheet" href="{% static "highlight/styles/default.css" %}">
 	<script src="{% static "highlight/highlight.pack.js" %}"></script>
 	<script> hljs.initHighlightingOnLoad(); </script>
-	<title>INFOR-Academy</title>
+	<!--template-->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
 </head>
 <body>
-	<form action="/search" method="get">
-		<div>
-			<input type="text" name="q" placeholder="Search">
-		</div>
-		<button type="submit"></button>
-	</form>
-
 	{% block content %} {% endblock %}
 </body>
 </html>
+
+<form action="/search" method="get">
+	<div class="form-group">
+		<input type="text" class="form-control" name="q" placeholder="输入搜索内容" value=""/>
+	</div>
+	<button type="submit" class="btn btn-defaul">
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+</form>

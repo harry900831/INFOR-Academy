@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<body class="landing">
+	<!-- Page Wrapper -->
+		<div id="page-wrapper" class="chi">
+			<!-- Header -->
+			<header id="header" class="alt">
+				<h1><a href="/">INFOR Academy</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<section id="search" class="alt">
+							<form method="GET" action="/search">
+								<input type="text" name="q" placeholder="Search" />
+							</form>
+						</section>	
+						</li>
+						<a href="#" class="icon fa-search"></a>
+					</ul>
+				</nav>
+			</header>
+			<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h2>INFOR Academy</h2>
+					<p>不管身置何處<br />
+					都是你的教室<br />
+									</p>
+				</div>
+				<a href="#one" class="more scrolly">課程在下方</a>
+			</section>
+			<!-- One -->
+			<section id="one" class="wrapper style1 ">
+				<div class="inner">
+					<section class="tiles">
+						{% for course in courses %}
+							<article class="style{{forloop.counter}}">
+							<span class="image">
+								<img src="{% static "images/pic04.jpg" %}"/>
+							</span>
+							<a href="/{{ course.Topic }}">
+								<h2> {{ course.Topic }}</h2>
+							</a>
+						</article>
+						{% endfor %}
+					</section>
+					</div>
+			</section>
+			<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://www.facebook.com/infor30th/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="https://infor.org" class="icon fa-globe"><span class="label">Website</span></a></li>
+					<li><a href="https://github.com/harry900831/INFOR-Academy" class="icon fa-github"><span class="label">Github</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; INFOR30th</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+		</div>
+
+		<!-- Scripts -->
+		<script src=" {% static "assets/js/jquery.min.js" %} "></script>
+		<script src=" {% static "assets/js/jquery.scrollex.min.js" %} "></script>
+		<script src=" {% static "assets/js/jquery.scrolly.min.js" %} "></script>
+		<script src=" {% static "assets/js/skel.min.js" %} "></script>
+		<script src=" {% static "assets/js/util.js" %} "></script>
+		<script src=" {% static "assets/js/main.js" %} "></script>
+</body>
+{% endblock %}
