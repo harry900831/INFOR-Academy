@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+	{% load staticfiles %}
 	<title>hi</title>
+	<link href="{% static "prism/prism.css" %}" rel="stylesheet" />
+	<script src="{% static "prism/prism.js" %}"></script>
 </head>
 <body>
-<form action="/search" method="get">
-	<div class="form-group">
-		<input type="text" class="form-control" name="q" placeholder="输入搜索内容" value=""/>
-	</div>
-	<button type="submit" class="btn btn-defaul">
-		<span class="glyphicon glyphicon-search"></span>
-	</button>
-</form>
 
+	<pre><code class='language-cpp line-numbers'>#include &lt;iostream&gt;&#10;using namespace std;&#10;int main(){&#10;    cout &lt;&lt; &#34;Hello World!&#34; &lt;&lt; endl;&#10;    //std::cout &lt;&lt; &#34;Hello World!&#34; &lt;&lt; std::endl;&#10;    return 0;&#10;    /*&#25105;&#20063;&#26159;&#35387;&#35299;&#10;    &#21487;&#20197;&#25563;&#34892;*/&#10;}
+</code></pre>
 </body>
 </html>
