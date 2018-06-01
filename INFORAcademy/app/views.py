@@ -11,7 +11,7 @@ def detail(request, course):
 		unit = Course.objects.get(Topic = course)
 		articles = unit.Article.all()
 		for article in articles:
-			if article.Show == 1:
+			if article.Show == True:
 				return HttpResponseRedirect('/'+course+'/'+str(article.id))
 		return HttpResponseRedirect('/')
 	except:
@@ -21,9 +21,9 @@ def article(request, course, id):
 	try:
 		unit = Course.objects.get(Topic = course)
 		article = unit.Article.get(id = id)
-		if article.Show == 0:
+		if article.Show == False:
 			return HttpResponseRedirect('/')
-		articles = unit.Article.all()
+		courses = Course.objects.all()
 		return render(request, "article.html", locals())
 	except:
 		return HttpResponseRedirect('/')

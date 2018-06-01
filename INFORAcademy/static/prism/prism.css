@@ -131,6 +131,8 @@ pre.line-numbers {
 pre.line-numbers > code {
 	position: relative;
     white-space: inherit;
+    overflow-x: visible !important; /* Hacked by oToToT for html5up */
+    padding: 0;
 }
 
 .line-numbers .line-numbers-rows {
