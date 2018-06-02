@@ -1,5 +1,8 @@
 from django.db import models
 
+class Visitor(models.Model):
+	View = models.PositiveIntegerField(default = 0)
+
 class Course(models.Model):
 	Topic = models.CharField(max_length = 50)
 	def __str__(self):
@@ -10,7 +13,6 @@ class Article(models.Model):
 	Author = models.CharField(max_length = 20, blank = True)
 	Date = models.DateField(auto_now = True)
 	Content = models.TextField(max_length = 10000)
-	Quantity = models.PositiveIntegerField(default = 0)
 	Course = models.ForeignKey(Course, related_name = "Article", on_delete=models.PROTECT)
 	Show = models.BooleanField(default = 1)
 	def  __str__(self):

@@ -1,41 +1,84 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
 <body>
-	{% if query %}
-		<h3>results</h3>
-		<table>
-			<tr>
-				{% for result in page.object_list %}
-					{% if result.object.Show == 1 %}
-						<td>
-							<p>
-								<a href="/{{result.object.Course}}/{{result.object.id}}">{{ result.object.Title }}</a>
-							</p>
-							<p>
-								{{ result.object.Content | safe | truncatechars_html:50 }}
-							</p>
-						</td>					
-					{% endif %}
-				{% empty %}
-					<td>
-						<p>
-							沒有結果
-						</p>
-					</td>
-				{% endfor %}
-			</tr>
-		</table>
-		{% if page.has_previous %}
-			<div>
-				<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">上一頁<a>
+	<div class="chi">
+		<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+		<!-- Header -->
+		<div class="w3-top" >
+			<div class="w3-bar w3-dark-grey w3-card-4">
+				<a href="/" class="w3-bar-item" style="padding:0.75em 0 0 1.25em;"><h4 class="w3-text-white" >INFOR ACADEMY</h4></a>
+				<div class="w3-bar-item w3-right">
+				<a class="w3-bar-item  w3-large w3-right w3-button w3-xlarge" onclick="w3_open()">&#9776;</a>	
+					<form method="GET" action="/search" style="display:inline;" class="w3-hide-small">
+						<input type="text" class="w3-bar-item" name="q" placeholder="Search" />
+						<button type="submit" class="w3-bar-item"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- Sidebar -->
+		<div class="w3-sidebar w3-bar-block w3-animate-right 3 w3-large w3-dark-grey w3-top" style="width:200px;display:none;z-index:5;right:0;" id="mySidebar">
+			<a class="w3-bar-item w3-right-align w3-button" onclick="w3_close()">X</a>
+			<form method="GET" action="/search" style="display:inline;" class="w3-hide-medium w3-hide-large">
+						<input type="text" class="w3-bar-item" name="q" placeholder="Search" />
+						<button type="submit" class="w3-bar-item"><i class="fa fa-search"></i></button>
+					</form>
+			{% for course in courses %}
+				<a href="#" class=" w3-bar-item w3-button w3-block w3-left-align w3-bottombar" onclick="DpD{{forloop.counter}}()">{{ course.Topic }}<i class="fa fa-caret-down w3-right"></i>
+				</a>
+				<div id="Dropdown{{forloop.counter}}" class="w3-hide w3-light-grey w3-card">
+					{% for art in course.Article.all %}
+						{% if art.Show == True %}
+							<a href="/{{course.Topic}}/{{art.id}}" class="w3-bar-item w3-button">{{art.Title}}</a>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% endfor %}
+		</div>
+		<div style="padding-top:100px;" class="w3-animate-opacity w3-light-grey" >
+			{% if query %}
+			<table>
+				<tr>
+					{% for result in page.object_list %}
+						{% if result.object.Show == 1 %}
+							<article class="w3-container "> 
+								<a href="/{{result.object.Course}}/{{result.object.id}}"><h2 id="subject1" class="w3-butt w3-hover-text-red">{{ result.object.Title }}</h2></a>
+								<p class="w3-large">{{ result.object.Content | safe | truncatechars_html:150 }}</p>
+								<h5 class="w3-right w3-opacity w3-margin" id="date1">{{ result.object.Date}}</h5>
+								<hr>
+							</article>			
+						{% endif %}
+					{% empty %}
+					<h1 class="w3-center">No result.<h1>
+					{% endfor %}
+				</tr>
+			</table>
+			<div class="w3-bar w3-xxxlarge w3-center w3-light-grey ">
+			{% if page.has_previous %}
+				<a href="&amp;page={{ page.previous_page_number }}" class="w3-opacity w3-hover-opacity-off w3-left w3-padding-left w3-padding">«</a>
+			{% else %}
+				<div class="w3-opacity w3-hover-opacity-off w3-left w3-padding-left w3-padding">«</div>
+			{% endif %}
+			{% if page.has_next %}
+				<a href="&amp;page={{ page.next_page_number }}" class="w3-opacity w3-hover-opacity-off w3-right w3-padding-right w3-padding">»</a>
+			{% else %}			
+				<div class="w3-opacity w3-hover-opacity-off w3-right w3-padding-right w3-padding">»</div>
+			{% endif %}
 			</div>
 		{% endif %}
-		{% if page.has_next %}
-			<div>
-				<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">下一頁</a>
-			</div>			
-		{% endif %}	
-	{% endif %}
+		</div>
+		<!-- footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="https://www.facebook.com/infor30th/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="https://infor.org" class="icon fa-globe"><span class="label">Website</span></a></li>
+				<li><a href="https://github.com/harry900831/INFOR-Academy" class="icon fa-github"><span class="label">Github</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; INFOR30th</li><li>Design: <a href="https://notfalse.net/60/syntax-highlighting">Davis</a></li><li>Views:7122</li>
+			</ul>
+		</footer>
+	</div>	
 </body>
 {% endblock %}

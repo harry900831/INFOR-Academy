@@ -3,61 +3,46 @@
 {% block content %}
 <body class="landing">
 	<!-- Page Wrapper -->
-		<div id="page-wrapper" class="chi">
-			<!-- Header -->
-			<header id="header" class="alt">
-				<h1><a href="/" class="w3-text-white">INFOR Academy</a></h1>
-				<nav id="nav">
-					<ul>
-						<li class="special">
-							<section id="search" class="alt">
-								<form method="GET" action="/search" style="display:inline;">
-									<input type="text" class="w3-bar-item" name="q" placeholder="Search" />
-									<button type="submit" class="w3-bar-item"><i class="fa fa-search"></i></button>
-								</form>
-							</section>
-						</li>
-					</ul>
-				</nav>
-			</header>
-			<!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<h2 class="w3-text-white">INFOR Academy</h2>
-					<p>不管身置何處<br />
-					都是你的教室<br />
-					</p>
+	<div id="page-wrapper" class="chi">
+		<!-- Header -->
+		<header id="header" class="alt">
+			<div class="w3-bar w3-dark-grey w3-card-4">
+				<a href="/" class="w3-bar-item" style="padding:0.75em 0 0 1.25em;"><h4 class="w3-text-white" >INFOR ACADEMY</h4></a>
+				<div class="w3-bar-item w3-right">	
+					<form method="GET" action="/search" style="display:inline;">
+						<input type="text" class="w3-bar-item" name="q" placeholder="Search" />
+						<button type="submit" class="w3-bar-item"><i class="fa fa-search"></i></button>
+					</form>
 				</div>
-				<a href="#one" class="more scrolly">課程在下方</a>
-			</section>
-			<!-- One -->
-			<section id="one" class="wrapper style1 ">
-				<div class="inner">
-					<section class="tiles">
-						{% for course in courses %}
-							<article class="style{{forloop.counter}}">
-							<span class="image">
-								<img src="{% static "images/pic04.jpg" %}"/>
-							</span>
-							<a href="/{{ course.Topic }}">
-								<h2> {{ course.Topic }}</h2>
-							</a>
-						</article>
-						{% endfor %}
-					</section>
-					</div>
-			</section>
-			<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="https://www.facebook.com/infor30th/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="https://infor.org" class="icon fa-globe"><span class="label">Website</span></a></li>
-					<li><a href="https://github.com/harry900831/INFOR-Academy" class="icon fa-github"><span class="label">Github</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; INFOR30th</li><li>Design: <a href="https://notfalse.net/60/syntax-highlighting">Davis</a></li><li>Visited:7122</li>
-				</ul>
-			</footer>
-		</div>
-	</body>
+			</div>
+		</header>
+		<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<h2 class="w3-text-white">INFOR Academy</h2>
+				<p>不管身置何處<br />
+				都是你的教室<br />
+				</p>
+			</div>
+			<a href="#one" class="more scrolly">課程在下方</a>
+		</section>
+		<!-- One -->
+		<section id="one" class="wrapper style1 ">
+			<div class="inner">
+				<section class="tiles">
+					{% for course in courses %}
+						<article class="style{{forloop.counter}}">
+						<span class="image">
+							<img src="{% static "images/pic04.jpg" %}"/>
+						</span>
+						<a href="/{{ course.Topic }}">
+							<h2> {{ course.Topic }}</h2>
+						</a>
+					</article>
+					{% endfor %}
+				</section>
+				</div>
+		</section>
+	</div>
+</body>
 {% endblock %}

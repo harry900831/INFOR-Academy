@@ -2519,8 +2519,8 @@
 		font-size: 0.8em;
 		font-weight: 600;
 		height: 2.725em;/* original value:3.125em */
-		letter-spacing: 0.225em;
-		/*line-height: 3.125em;*/
+		/*letter-spacing: 0.225em;
+		line-height: 3.125em;*/
 		padding: 0 2.75em;
 		text-align: center;
 		text-decoration: none;
@@ -2622,7 +2622,7 @@
 			opacity: 0.25;
 		}
 
-		@media screen and (max-width: 736px) {
+		/*@media screen and (max-width: 736px) {
 
 			input[type="submit"],
 			input[type="reset"],
@@ -2633,7 +2633,7 @@
 				line-height: 3.75em;
 			}
 
-		}
+		}*/
 
 /* Features */
 
@@ -3785,7 +3785,7 @@
 	}
 
 	body.landing #footer {
-		background-color: rgba(29, 36, 42, 0.9);
+		background-color: #2e3842;
 	}
 
 	body.is-mobile.landing #page-wrapper {
@@ -3804,7 +3804,7 @@
 	}
 
 	body.is-mobile.landing #footer {
-		background-color: #1d242a;
+		background-color: #2e3842;
 	}
 /*--W3CSS--*/
 .w3-image{max-width:100%;height:auto}img{vertical-align:middle}a{color:inherit}
