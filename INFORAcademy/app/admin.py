@@ -8,7 +8,6 @@ class ArticleAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Article, ArticleAdmin)
 admin.site.register(models.Course)
-admin.site.register(models.Visitor)
 
 
 
