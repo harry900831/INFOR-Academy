@@ -36,14 +36,14 @@
 				</div>
 			{% endfor %}
 		</div>
-		<div style="padding-top:100px;" class="w3-animate-opacity  content2" >
+		<div style="padding-top:100px;" class="w3-animate-opacity w3-text-black content2" >
 			{% if context.query %}
 				<table>
 					<tr>
 						{% for result in context.page.object_list %}
 							{% if result.object.Show == 1 %}
 								<article class="w3-container "> 
-									<a href="/{{result.object.Course}}/{{result.object.id}}"><h2 id="subject1" class="w3-butt w3-hover-text-red">{{ result.object.Title }}</h2></a>
+									<a href="/{{result.object.Course}}/{{result.object.id}}"><h2 id="subject1" class="w3-butt w3-hover-text-red">{{ result.object.Title }}<span class="w3-opacity w3-large ">Course:{{result.object.Course}}</span></h2></a>
 									<p class="w3-large">{{ result.object.Content | safe | truncatechars_html:150 }}</p>
 									<h5 class="w3-right w3-opacity w3-margin" id="date1">{{ result.object.Date}}</h5>
 									<hr>
