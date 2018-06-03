@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="chi">
+<div class="chi content1">
 	<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 	<!-- Header -->
 	<div class="w3-top" >
@@ -21,6 +21,7 @@
 	<!-- Sidebar -->
 	<div class="w3-sidebar w3-bar-block w3-animate-right 3 w3-large w3-dark-grey w3-top" style="width:200px;display:none;z-index:5;right:0;" id="mySidebar">
 		<a class="w3-bar-item w3-right-align w3-button" onclick="w3_close()">X</a>
+		<form method="GET" action="/search" style="display:inline;" class="w3-hide-medium w3-hide-large">
 		<input type="text" class="w3-bar-item" name="q" placeholder="Search" />
 					<button type="submit" class="w3-bar-item"><i class="fa fa-search"></i></button>
 				</form>
@@ -37,7 +38,7 @@
 		{% endfor %}
 	</div>
 	<!--content-->
-	<div style="padding-top:100px;" class="w3-animate-opacity w3-light-grey" >
+	<div style="padding-top:100px;" class="w3-animate-opacity w3-light-grey w3-container" >
 		<div class="w3-container">
 			<h1 class="w3-xxlarge w3-center">{{ article.Title }}<span class="w3-small w3-opacity w3-margin" id="date1">{{ article.Date }}</span></h1>
 			<h5>{{ article.Content | safe | linebreaksbr }}</h5>

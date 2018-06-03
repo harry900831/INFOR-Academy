@@ -27,22 +27,24 @@
 			<a href="#one" class="more scrolly">課程在下方</a>
 		</section>
 		<!-- One -->
-		<section id="one" class="wrapper style1 ">
-			<div class="inner">
-				<section class="tiles">
-					{% for course in courses %}
-						<article class="style{{forloop.counter}}">
-						<span class="image">
-							<img src="{% static "images/pic04.jpg" %}"/>
-						</span>
-						<a href="/{{ course.Topic }}">
-							<h2> {{ course.Topic }}</h2>
-						</a>
-					</article>
-					{% endfor %}
-				</section>
-				</div>
-		</section>
+		<div class="content1">
+			<section id="one" class="wrapper style1 ">
+				<div class="inner">
+					<section class="tiles">
+						{% for course in courses %}
+							<article class="style{{forloop.counter}}">
+							<span class="image">
+								<img src="{% static "images/pic04.jpg" %}"/>
+							</span>
+							<a href="/{{ course.Topic }}">
+								<h2> {{ course.Topic }}</h2>
+							</a>
+						</article>
+						{% endfor %}
+					</section>
+					</div>
+			</section>
+		</div>
 	</div>
 </body>
 {% endblock %}
